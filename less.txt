@@ -1,0 +1,20 @@
+<script>
+        var pixRatio = 1/window.devicePixelRatio;
+        var html = document.documentElement;
+        document.write('<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale='+ pixRatio +',minimum-scale='+ pixRatio +',maximum-scale='+ pixRatio +'">');
+        html.style.fontSize = html.clientWidth/25 + 'px';
+    </script>
+ 25可以随便写，然后用你设计稿的尺寸/25. 比如750/25 = 30；
+在你的less文件最顶，写@rem：30rem；
+后面就可以看直接拿psd的尺寸/@rem即可；
+如psd width为60.即width：60/@rem;考拉会自动计算的，
+
+现在页面的上方加入这个，这个是计算屏幕的像素比，然后设置默认的字体号，
+在less文件引用其他的less文件，用@import‘另外一个less的名字’；
+用考拉工具可以实时的把你less文件，转变为css的，
+
+
+背景图大小设置： background-size: 100%;
+精灵兔图大小，background-size:60/@rem 800/@rem;  //60 800是精灵图整张大小的宽高；
+精灵图定位 单个icon宽高为60*60；  background: url("../img/icon.png") no-repeat 60/@rem 60/@rem;
+可以吧这个单独拿出来，用参数的方式写，具体看case.less；
